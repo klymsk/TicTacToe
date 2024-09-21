@@ -1,28 +1,120 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
 body {
     background-color: #D6E6FD;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 1vw;
 }
 
 main {
-    background-color: #4F4F87;
-    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    justify-content: center;
+    align-items: center;
 }
 
-.board {
-    display: grid;
-    grid-template-columns: repeat(3, 100px);
-    grid-template-rows: repeat(3, 100px);
-    gap: 5px;
-    padding: 60px;
+.timer {
+    background-color: #4F4F87;
+    border-radius: 20px;
+    padding: 15px 40px;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.4);
 }
 
 #time {
     color: #FFFFFF;
     font-family: "Unbounded";
-    font-size: 20px;
+    font-size: 1em;
     font-weight: 500;
     transition: color 0.3s ease;
 }
+
+.board {
+    background-color: #4F4F87;
+    border-radius: 20px;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.4);
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: repeat(3, auto);
+    padding: 60px;
+    height: 60vh;
+    width: 40vw;
+}
+
+.block {
+    background-color: #4F4F87;
+    border: 5px solid #393964;
+    position: relative;
+    cursor: pointer;
+}
+
+.block.X::before,
+.block.X::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10vmin;
+    height: 1vmin;
+    background-color: #D6E6FD;
+    border-radius: 20px;
+    transform: translate(-50%, -50%);
+}
+
+.block.X::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.block.X::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.block.O::before,
+.block.O::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 5vmin;
+    height: 5vmin;
+    border-radius: 50px;
+    border: 2vmin solid white;
+}
+
+.scoreBoard {
+    background-color: #4F4F87;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.4);
+    border-radius: 20px;
+    padding: 15px 40px; 
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.score {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.imgScore {
+    height: 60%;
+    max-width: 25%;
+}
+
+.score h1 {
+    font-family: "Unbounded";
+    font-size: 1em;
+    font-weight: 500;
+    color: white;
+}
+
 
